@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
-    MediaPlayer mp;
-    int position = 0;
 
     VideoView videoView;
 
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         String nameVideo = getIntent().getStringExtra("videoName");
 
-        if(nameVideo == null) {
+        if (nameVideo == null) {
             videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.noragami));
         } else {
             videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/raw/" + nameVideo));
@@ -85,11 +83,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    public void stop(View v) {
-        if (mp != null) {
-            mp.stop();
-            position = 0;
-        }
-    }
 }
